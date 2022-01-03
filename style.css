@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: #947171;
+  background-image: url("https://images.unsplash.com/photo-1557683304-673a23048d34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=564&q=80");
+  background-size: cover;
+}
+.container {
+  max-width: 700px;
+  width: 100%;
+  backdrop-filter: blur(18px) saturate(200%);
+  -webkit-backdrop-filter: blur(18px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.63);
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #e7db2e, #f8060698);
+}
+.content form .user-details,
+.phone-info-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box,
+.phone-info-box .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input,
+.phone-info-box .input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  background-color: rgb(255, 255, 255);
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: #9b59b6;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+form .input-address {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+form .input-address .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+form .input-address textarea {
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  padding: 0.8rem;
+}
+
+form .input-address textarea:focus {
+  border-color: #9b59b6;
+}
+form .input-address textarea::placeholder {
+  font-size: 16px;
+}
+
+.Phone-details .title {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+form .button {
+  height: 45px;
+  margin: 35px 0;
+}
+form .button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+form .button input:hover {
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+@media (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  form .user-details .input-box,
+  .phone-info-box .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
