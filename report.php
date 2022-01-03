@@ -4,18 +4,46 @@ use Dompdf\Dompdf;
   if($_POST){
     $dompdf = new Dompdf();
 
-    $fullname = $_POST['fullname'];
-    $date     = $_POST['date'];
-    $email    = $_POST['email'];
-    $mobile   = $_POST['mobile'];
-    $work     = $_POST['work'];
-    $dob      = $_POST['dob'];
-    $address  = $_POST['address'];
-    $brand    = $_POST['brand'];
-    $model    = $_POST['model'];
-    $imei     = $_POST['imei'];
-    $password = $_POST['password'];
-    $rs       = $_POST['rs'];
+    $fullname           = $_POST['fullname'];
+    $date               = $_POST['date'];
+    $email              = $_POST['email'];
+    $mobile             = $_POST['mobile'];
+    $work               = $_POST['work'];
+    $dob                = $_POST['dob'];
+    $address            = $_POST['address'];
+    $brand              = $_POST['brand'];
+    $model              = $_POST['model'];
+    $imei               = $_POST['imei'];
+    $password           = $_POST['password'];
+    $rs                 = $_POST['rs'];
+
+    $warranty           = $_POST['warranty'];
+    $is_repaired        = $_POST['is_repaired'];
+    $is_upgraded        = $_POST['is_upgraded'];
+    $is_owner           = $_POST['is_owner'];
+    $is_impact_damage   = $_POST['is_impact_damage'];
+    $is_liquid_damage   = $_POST['is_liquid_damage'];
+    
+    $prob_turning_on    = isset($_POST['prob_turning_on'])?'[#]':'[ ]';
+    $prob_charging      = isset($_POST['prob_charging'])?'[#]':'[ ]';
+    $prob_power_btn     = isset($_POST['prob_power_btn'])?'[#]':'[ ]';
+    $prob_keypad        = isset($_POST['prob_keypad'])?'[#]':'[ ]';
+    $prob_joystick      = isset($_POST['prob_joystick'])?'[#]':'[ ]';
+    $prob_hold_charge   = isset($_POST['prob_hold_charge'])?'[#]':'[ ]';
+    $prob_touch         = isset($_POST['prob_touch'])?'[#]':'[ ]';
+    $prob_datap_ort     = isset($_POST['prob_datap_ort'])?'[#]':'[ ]';
+    $prob_sim_card      = isset($_POST['prob_sim_card'])?'[#]':'[ ]';
+    $prob_lcd           = isset($_POST['prob_lcd'])?'[#]':'[ ]';
+    $prob_backlight     = isset($_POST['prob_backlight'])?'[#]':'[ ]';
+    $prob_ringer        = isset($_POST['prob_ringer'])?'[#]':'[ ]';
+    $prob_speaker       = isset($_POST['prob_speaker'])?'[#]':'[ ]';
+    $prob_mic           = isset($_POST['prob_mic'])?'[#]':'[ ]';
+    $prob_password      = isset($_POST['prob_password'])?'[#]':'[ ]';
+    $prob_charging_port = isset($_POST['prob_charging_port'])?'[#]':'[ ]';
+    $prob_network       = isset($_POST['prob_network'])?'[#]':'[ ]';
+    $prob_broken        = isset($_POST['prob_broken'])?'[#]':'[ ]';
+    $otherFault         = isset($_POST['otherFault'])?$_POST['otherFault']:'';
+    
 
     $html = "<!DOCTYPE html>
       <html>
@@ -32,15 +60,12 @@ use Dompdf\Dompdf;
       #page_1 {position:relative; overflow: hidden;margin: 28px 0px 36px 17px;padding: 0px;border: none;width: 777px;}
       #page_1 #id1_1 {border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 777px;overflow: hidden;}
       #page_1 #id1_2 {border:none;margin: 22px 0px 0px 2px;padding: 0px;border:none;width: 775px;overflow: hidden;}
-      #page_1 #id1_2 #id1_2_1 {float:left;border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 384px;overflow: hidden;}
-      #page_1 #id1_2 #id1_2_2 {float:left;border:none;margin: 19px 0px 0px 0px;padding: 0px;border:none;width: 391px;overflow: hidden;}
+      #page_1 #id1_2 #id1_2_1 {border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 384px;overflow: hidden;}
+      #page_1 #id1_2 #id1_2_2 {border:none;margin: 19px 0px 0px 0px;padding: 0px;border:none;width: 391px;overflow: hidden;}
       #page_1 #id1_3 {border:none;margin: 24px 0px 0px 2px;padding: 0px;border:none;width: 775px;overflow: hidden;}
 
       #page_1 #p1dimg1 {position:absolute;top:12px;left:9px;z-index:-1;width:710px;height:389px;}
       #page_1 #p1dimg1 #p1img1 {width:710px;height:389px;}
-
-
-
 
       .ft0{font: bold 16px 'Calibri';line-height: 19px;}
       .ft1{font: bold 21px 'Calibri';;line-height: 26px;}
@@ -172,63 +197,67 @@ use Dompdf\Dompdf;
               </span>
             </P>
           </div>
-          <div id='id1_2'>
-            <div id='id1_2_1'>
-              <P class='p9 ft2'>Other information (circle the correct answer):</P>
-              <P class='p12 ft3'>Is the phone under warranty? (Yes/No)</P>
-              <P class='p13 ft8'>Have this phone been repaired by any one before (Yes/No) Have you upgraded the phone software? (Yes/No)</P>
-            </div>
+          
 
-            <div id='id1_2_2'>
-              <P class='p9 ft3'>Are you the original owner of the phone? (Yes/No)</P>
-              <P class='p14 ft8'>Have this phone suffered from impact damage? (Yes/No) Does the phone have liquid damage? (Yes/No)</P>
-            </div>
-          </div>  
+            <table id='id1_2'>
+              <tr>
+                <td id='id1_2_1'>
+                  <P class='p9 ft2'>Other information (circle the correct answer):</P>
+                  <P class='p12 ft3'>Is the phone under warranty? ($warranty)</P>
+                  <P class='p13 ft8'>Have this phone been repaired by any one before ($is_repaired) Have you upgraded the phone software? ($is_upgraded)</P>
+                </td>
+                <td id='id1_2_2'>
+                  <P class='p9 ft3'>Are you the original owner of the phone? ($is_owner)</P>
+                  <P class='p14 ft8'>Have this phone suffered from impact damage? ($is_impact_damage) Does the phone have liquid damage? ($is_liquid_damage)</P>
+                </td>
+              </tr>
+            </table>
+
 
           <div id='id1_3'>
             <P class='p9 ft2'>Please tell us the faults of your mobile phone and you would like us to repair for you (tick as many as possible answers)</P>
             <table cellpadding=0 cellspacing=0 class='t0'>
               <tr>
-                <td class='tr0 td0'><P class='p15 ft2'>[ ] Phone not turning on</P></td>
-                <td class='tr0 td1'><P class='p15 ft2'>[ ] Phone is not charging</P></td>
-                <td class='tr0 td2'><P class='p15 ft2'>[ ] Power button not working</P></td>
+                <td class='tr0 td0'><P class='p15 ft2'> $prob_turning_on Phone not turning on</P></td>
+                <td class='tr0 td1'><P class='p15 ft2'> $prob_charging Phone is not charging</P></td>
+                <td class='tr0 td2'><P class='p15 ft2'>$prob_power_btn Power button not working</P></td>
               </tr>
               <tr>
-                <td class='tr1 td0'><P class='p15 ft2'>[ ] Keypad not working</P></td>
-                <td class='tr1 td1'><P class='p15 ft2'>[ ] Joystick is faulty</P></td>
-                <td class='tr1 td2'><P class='p15 ft2'>[ ] cannot hold charge</P></td>
+                <td class='tr1 td0'><P class='p15 ft2'>$prob_keypad Keypad not working</P></td>
+                <td class='tr1 td1'><P class='p15 ft2'>$prob_joystick Joystick is faulty</P></td>
+                <td class='tr1 td2'><P class='p15 ft2'>$prob_hold_charge cannot hold charge</P></td>
               </tr>
               <tr>
-                <td class='tr2 td0'><P class='p15 ft2'>[ ] Touch screen in not working</P></td>
-                <td class='tr2 td1'><P class='p15 ft2'>[ ] Data port not working</P></td>
-                <td class='tr2 td2'><P class='p15 ft2'>[ ] cannot read SIM card</P></td>
+                <td class='tr2 td0'><P class='p15 ft2'>$prob_touch Touch screen in not working</P></td>
+                <td class='tr2 td1'><P class='p15 ft2'>$prob_datap_ort Data port not working</P></td>
+                <td class='tr2 td2'><P class='p15 ft2'>$prob_sim_card cannot read SIM card</P></td>
               </tr>
               <tr>
-                <td class='tr2 td0'><P class='p15 ft2'>[ ] LCD is cracked</P></td>
-                <td class='tr2 td1'><P class='p15 ft2'>[ ] LCD backlight is not working</P></td>
-                <td class='tr2 td2'><P class='p15 ft2'>[ ] Ringer not working</P></td>
+                <td class='tr2 td0'><P class='p15 ft2'>$prob_lcd LCD is cracked</P></td>
+                <td class='tr2 td1'><P class='p15 ft2'>$prob_backlight LCD backlight is not working</P></td>
+                <td class='tr2 td2'><P class='p15 ft2'>$prob_ringer Ringer not working</P></td>
               </tr>
               <tr>
-                <td class='tr2 td0'><P class='p15 ft2'>[ ] Cannot hear the other party</P></td>
-                <td class='tr2 td1'><P class='p15 ft2'>[ ] other party cannot hear me</P></td>
-                <td class='tr2 td2'><P class='p15 ft2'>[ ] Forget my phone password</P></td>
+                <td class='tr2 td0'><P class='p15 ft2'>$prob_speaker Cannot hear the other party</P></td>
+                <td class='tr2 td1'><P class='p15 ft2'>$prob_mic other party cannot hear me</P></td>
+                <td class='tr2 td2'><P class='p15 ft2'>$prob_password Forget my phone password</P></td>
               </tr>
               <tr>
-                <td class='tr3 td0'><P class='p15 ft2'>[ ] Charging port is faulty</P></td>
-                <td class='tr3 td1'><P class='p15 ft2'>[ ] Network lock</P></td>
-                <td class='tr3 td2'><P class='p15 ft2'>[ ] Housing broken</P></td>
+                <td class='tr3 td0'><P class='p15 ft2'>$prob_charging_port Charging port is faulty</P></td>
+                <td class='tr3 td1'><P class='p15 ft2'>$prob_network Network lock</P></td>
+                <td class='tr3 td2'><P class='p15 ft2'>$prob_broken Housing broken</P></td>
               </tr> 
             </table>
 
-            <P class='p12 ft2'>Other Faults:____________________________________________________________________________________</P>
+            <P class='p12 ft2'>Other Faults:____________________________________________________________________________________<span style='position: absolute; left: 130px;'>$otherFault</span> </P>
             <P class='p16 ft2'>Terms and Conditions:</P>
             <P class='p17 ft9'>**Rs100** inspection fee (counted towards the final repair cost) must be paid before inspection is conducted Owner agreed that all fees due must be paid within thirty (30) days from the date phone is being repair; your phone will be kept in lieu of payment after the thirty (30) days period.</P>
-            <P class='p18 ft3'><SPAN class='ft4'>∙</SPAN><SPAN class='ft10'>Owner had backup all the important data before handling phone over for inspection or repair.</SPAN></P>
-            <P class='p19 ft3'><SPAN class='ft4'>∙</SPAN><SPAN class='ft10'>STT Gadgets (MCare), staff or its agent are not liable phones termination (permanent disabled) due to any preexisting conditions</SPAN></P>
+            <P class='p18 ft3'><SPAN class='ft4'>.</SPAN><SPAN class='ft10'>Owner had backup all the important data before handling phone over for inspection or repair.</SPAN></P>
+            <P class='p19 ft3'><SPAN class='ft4'>.</SPAN><SPAN class='ft10'>STT Gadgets (MCare), staff or its agent are not liable phones termination (permanent disabled) due to any preexisting conditions</SPAN></P>
             <P class='p20 ft3'>(e.g. water damage, software tempering or impact damage).</P>
-            <P class='p18 ft3'><SPAN class='ft4'>∙</SPAN><SPAN class='ft10'>Owner must be ready to reply to repair cost confirmation via whatsapp, email or voice call.</SPAN></P>
-            <P class='p21 ft12'><SPAN class='ft4'>∙</SPAN><SPAN class='ft11'>All repaired device must be paid for in full within thirty (30) days; otherwise the device will kept in lieu of payment. There is no exception to this unless prior written consent was given.</SPAN></P>
-            <P class='p22 ft8'><SPAN class='ft4'>∙</SPAN><SPAN class='ft13'>STT Gadgets will provide 7 days to 6 months warranty on specific repair work done. Date is counted from the first repair slip given to customer on repaired done.</SPAN></P>
+            <P class='p18 ft3'><SPAN class='ft4'>.</SPAN><SPAN class='ft10'>Owner must be ready to reply to repair cost confirmation via whatsapp, email or voice call.</SPAN></P>
+            <P class='p21 ft12'><SPAN class='ft4'>.</SPAN><SPAN class='ft11'>All repaired device must be paid for in full within thirty (30) days; otherwise the device will kept in lieu of payment. There is no exception to this unless prior written consent was given.</SPAN></P>
+            <P class='p22 ft8'><SPAN class='ft4'>.</SPAN><SPAN class='ft13'>STT Gadgets will provide 7 days to 6 months warranty on specific repair work done. Date is counted from the first repair slip given to customer on repaired done.</SPAN></P>
 
             <table cellpadding=0 cellspacing=0 class='t1'>
               <tr>
@@ -241,7 +270,7 @@ use Dompdf\Dompdf;
               </tr>
               <tr>
                 <td class='tr5 td3'><P class='p15 ft3'>Full Name: ______________________________</P></td>
-                <td class='tr5 td4'><P class='p15 ft3'>Date: ___________________________</P></td>
+                <td class='tr5 td4'><P class='p15 ft3'>Date: ___________________________ <span style='position: absolute; left: 540px;'>$date</span></P></td>
               </tr>
             </table>
           </div>

@@ -64,7 +64,8 @@ form .input-box span.details {
   margin-bottom: 5px;
 }
 .user-details .input-box input,
-.phone-info-box .input-box input {
+.phone-info-box .input-box input,
+.phone-info-box .input-box select {
   height: 45px;
   width: 100%;
   outline: none;
@@ -117,6 +118,23 @@ form .input-address textarea::placeholder {
   font-weight: 500;
   margin-bottom: 10px;
   width: 100%;
+}
+.left-side-input > div,
+.right-side-input > div {
+  margin-bottom: 10px;
+}
+.otherInformation > div {
+  margin-bottom: 10px;
+}
+
+.otherInformation select#warranty {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+#otherFault {
+  border: none;
+  outline: none;
 }
 
 form .button {
