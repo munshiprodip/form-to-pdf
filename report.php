@@ -118,9 +118,9 @@ use Dompdf\Dompdf;
             <P class='p4 ft2'>Data Lost Warning</P>
             <P class='p5 ft3'>You must back up your data before sending your phone for repair, if you are not sure, please call (+91) 7077595902</P>
             <P class='p6 ft2'>Important Reminder</P>
-            <P class='p7 ft6'><SPAN class='ft4'>∙</SPAN><SPAN class='ft5'>Please remove your SIM card, memory card, stylus and phone accessories before submitting your phone. The repair center and its agents are NOT Allowed to keep these important items. And STT Gadgets is not responsible.</SPAN></P>
-            <P class='p8 ft6'><SPAN class='ft4'>∙</SPAN><SPAN class='ft5'>As we want to provide best service to you so that we are doing diagnosis to check your device health and for that we are charging you Rs.100/- (If you are not ready to repair after diagnosis). And if you are ready to repair with us and as you are valuable customer we do not charge anything for diagnosis.</SPAN></P>
-            <P class='p9 ft6'><SPAN class='ft4'>∙</SPAN><SPAN class='ft5'>If you repair your </SPAN><NOBR>under-warranty</NOBR> Smartphone with us then we will not be responsible for tore of warranty conditions of your respective brands.</P>
+            <P class='p7 ft6'><SPAN class='ft4'>.</SPAN><SPAN class='ft5'>Please remove your SIM card, memory card, stylus and phone accessories before submitting your phone. The repair center and its agents are NOT Allowed to keep these important items. And STT Gadgets is not responsible.</SPAN></P>
+            <P class='p8 ft6'><SPAN class='ft4'>.</SPAN><SPAN class='ft5'>As we want to provide best service to you so that we are doing diagnosis to check your device health and for that we are charging you Rs.100/- (If you are not ready to repair after diagnosis). And if you are ready to repair with us and as you are valuable customer we do not charge anything for diagnosis.</SPAN></P>
+            <P class='p9 ft6'><SPAN class='ft4'>.</SPAN><SPAN class='ft5'>If you repair your </SPAN><NOBR>under-warranty</NOBR> Smartphone with us then we will not be responsible for tore of warranty conditions of your respective brands.</P>
             <P class='p10 ft2'>Your Contact Details:</P>
 
             <P class='p5 ft3'>
