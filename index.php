@@ -40,7 +40,7 @@
             </div>
             <div class='input-box'>
               <span class='details'>DOB</span>
-              <input type='text' name='dob' placeholder='Enter your DOB' required />
+              <input type='date' name='dob' placeholder='Enter your DOB' required />
             </div>
           </div>
           <div class='input-address'>
