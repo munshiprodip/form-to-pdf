@@ -269,7 +269,7 @@ use Dompdf\Dompdf;
                 <td class='tr2 td4'><P class='p15 ft14'>&nbsp;</P></td>
               </tr>
               <tr>
-                <td class='tr5 td3'><P class='p15 ft3'>Full Name: ______________________________</P></td>
+                <td class='tr5 td3'><P class='p15 ft3'>Full Name: ______________________________<span style='position: absolute; left: 85px;'>$fullname</span></P></td>
                 <td class='tr5 td4'><P class='p15 ft3'>Date: ___________________________ <span style='position: absolute; left: 540px;'>$date</span></P></td>
               </tr>
             </table>
